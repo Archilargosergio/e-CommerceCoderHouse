@@ -13,7 +13,7 @@ const NavBar = () => {
     }
     return (
         <nav>
-            <div className='menu-container'>
+            <div className='menu-container z-10'>
                 <img src={menu} alt="menu" className="menu" onClick={handleToggleMenu} />
                 {toggleMenu && < Menu />}
             </div>
@@ -35,4 +35,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default NavBar;

@@ -1,19 +1,10 @@
-export function Greeting() {
+
+const ItemListContainer = ({ children }) => {
     return (
-        <div>
-            <h4>Welcome to 24/7 Shop</h4>
-            <p>The unique store who delivery fast and furious</p>
-        </div>
+        <main className="z-0 w-full h-auto mt-10">
+            {children}
+        </main>
     )
 }
 
-const ItemListContainer = () => {
-
-    return (
-        <div>
-            < Greeting />
-        </div>
-    )
-}
-
-export default ItemListContainer;
+export default ItemListContainer
