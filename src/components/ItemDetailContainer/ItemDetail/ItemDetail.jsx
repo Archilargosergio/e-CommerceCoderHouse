@@ -1,40 +1,49 @@
-import './ItemDetail.css';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import './ItemDetail.css';
 import shoppingCart from '../../../assets/icons/icon_shopping_cart.svg';
 import { products } from '../../../mock/Products';
 
 const ItemDetail = () => {
     const [counter, setCounter] = useState(1);
-    const [item, setItem] = useState([]);
+    const [product, setProduct] = useState({});
+
+    const value = useParams();
+
+    const number = parseFloat(value.id)
 
     useEffect(() => {
-        const getProducts = () => {
-            return new Promise((resolve, reject) => {
+        const getItemDetail = async () => {
+            return await new Promise((resolve, reject) => {
+                const filterItems = products.find(
+                    (prod) => prod.id === number);
+
                 setTimeout(() => {
-                    resolve(products);
-                }, 2000);
-            })
+                    resolve(filterItems);
+
+                }, 500);
+            });
         }
-        getProducts()
+        getItemDetail()
             .then((resolve) => {
-                setItem(resolve);
+                setProduct(resolve);
             })
             .catch((error) => {
                 console.log(error);
             })
-    }, [])
+    }, [number]);
 
     return (
         <main>
-            <img className='imageContainer' src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike" />
+            <img className='imageContainer' src={product.img} alt={product.title} />
 
             <div className="ProductInfo">
 
                 <div className='labelContainer'>
 
                     <div className='textContainer'>
-                        <p>Bike</p>
-                        <p>$35,00</p>
+                        <p>{product.title}</p>
+                        <p>${product.price}</p>
                     </div>
 
                     <div className='buttonsContainer'>
@@ -59,7 +68,7 @@ const ItemDetail = () => {
                     </div>
 
                 </div>
-                <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+                <p>With its practical position, this product also fulfills a decorative function, add your hall or workspace.</p>
             </div>
         </main>
     )

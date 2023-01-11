@@ -27,12 +27,12 @@ const ItemList = () => {
             .catch((error) => {
                 console.log(error);
             })
-    }, [categoryName])
+    }, [categoryName]);
     return (
 
         <div className='itemList'>
-            {item.map((product) => {
-                return < Item product={product} key={product.id} />
+            {item.map((item) => {
+                return < Item item={item} key={item.id} />
             })}
         </div>
 

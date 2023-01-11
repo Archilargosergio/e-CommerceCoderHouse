@@ -2,15 +2,19 @@ import { useState } from 'react';
 import './Item.css';
 import shoppingCart from '../../../assets/icons/icon_shopping_cart.svg';
 
-const Item = ({ product }) => {
+const Item = ({ item }) => {
     const [counter, setCounter] = useState(1)
     return (
         <div className="ProductItem">
-            <img src={product.img} alt={product.title} />
+
+            <a href={`/item/${item.id}`}>
+                <img src={item.img} alt={item.id} />
+            </a>
+
             <div className="productInfo">
                 <div>
-                    <p>${product.price}</p>
-                    <p>{product.title}</p>
+                    <p>${item.price}</p>
+                    <p>{item.title}</p>
                 </div>
 
                 <div className='buttonContainer'>

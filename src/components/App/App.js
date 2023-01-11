@@ -35,9 +35,9 @@ function App() {
           />
           < Route path='/item/:id' 
             element= {
-            <ItemDetailContainer >
+              < ItemDetailContainer>
              < ItemDetail />
-            </ItemDetailContainer>
+              </ItemDetailContainer>
              } 
           />
        </Routes>

@@ -3,11 +3,10 @@ main{
 	height: auto;
 	margin: 5px auto;
 	display: grid;
-	place-content: center;
+	place-items: center;
 }
 .imageContainer{
-	width: 60%;
-	height: auto;
+	width: 50%;
 	border-radius: 10px;
 	object-fit: cover;
 	justify-self: center;
@@ -96,7 +95,7 @@ main{
 }
 @media (max-width: 640px){
 	.imageContainer{
-		width: 95%;
+		width: auto;
 	}
 	.labelContainer{
 		gap: 20px;
