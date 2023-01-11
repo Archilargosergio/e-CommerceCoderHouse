@@ -32,7 +32,13 @@ nav{
     object-fit: cover;
     width: 40px;
     height: 40px;
+    border-radius: 8px;
  }
+ .navbar-left img:hover{
+   background-color: greenyellow;
+   transform: scale(1.1);
+	transition-duration: 0.5s;
+}
  .navbar-right ul{
     display: flex;
     gap: 20px;

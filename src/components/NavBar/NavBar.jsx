@@ -18,7 +18,9 @@ const NavBar = () => {
                 {toggleMenu && < Menu />}
             </div>
             <div className="navbar-left">
-                <img src={logo} alt="logo" className="nav-logo" />
+                <a href="/">
+                    <img src={logo} alt="logo" className="nav-logo" />
+                </a>
                 < Menu />
             </div>
             <div className="navbar-right">

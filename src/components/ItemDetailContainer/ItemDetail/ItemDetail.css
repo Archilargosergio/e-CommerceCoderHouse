@@ -1,0 +1,120 @@
+main{
+	width: 90%;
+	height: auto;
+	margin: 5px auto;
+	display: grid;
+	place-content: center;
+}
+.imageContainer{
+	width: 63%;
+	height: auto;
+	border-radius: 10px;
+	object-fit: cover;
+	justify-self: center;
+	z-index: 0;
+}
+.imageContainer:hover{
+	transform: scale(1.04);
+	transition-duration: 0.5s;
+}
+.ProductInfo {
+	margin: 20px auto;
+}
+.labelContainer{
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0 0 10px 0;
+	align-content: center;
+}
+.textContainer{
+	display: flex;
+	gap: 60px;
+	font-weight: bold;
+	align-items: center;
+}
+.textContainer p:nth-child(1) {
+	color: white;
+	font-size: 30px;
+}
+.textContainer p:nth-child(1):hover {
+	color: greenyellow;
+}
+.textContainer p:nth-child(2) {
+	font-size: 25px;
+}
+.ProductInfo p:nth-child(3) {
+	font-size: 20px;
+}
+.buttonsContainer{
+	display: flex;
+	gap: 25px;
+}
+.counter-button{
+	width: 80px;
+	height: 80%;
+	display: grid;
+	grid-template-columns: auto 30px auto;
+	align-self: center;
+	background-color: azure;
+	border-radius: 5px;
+}
+.counter-button button{
+	height: 100%;
+	background-color: rgb(207, 207, 207);
+	font-weight: bold;
+}
+.counter-button button:hover{
+	background-color: rgb(177, 177, 177);
+}
+.counter-button p{
+	text-align: center;
+	align-self: center;
+}
+.primary-button {
+	width: auto;
+	height: 50px;
+	padding: 0 10px;
+	place-self: center;
+	background-color: rgb(0, 187, 255);
+	border-radius: 8px;
+	border: none;
+	gap: 15px;
+	color: white;
+	cursor: pointer;
+	font-size: auto;
+	font-weight: bold;
+}
+.primary-button:hover{
+	background-color: greenyellow;
+	transform: scale(1.1);
+	transition-duration: 0.5s;
+}
+.add-to-cart-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+@media (max-width: 640px){
+	.imageContainer{
+		width: 95%;
+	}
+	.labelContainer{
+		gap: 20px;
+	}
+	.textContainer{
+		gap: 15px;
+	}
+	.textContainer p:nth-child(1) {
+		font-size: 25px;
+	}
+	.textContainer p:nth-child(2) {
+		font-size: 20px;
+	}
+	.buttonsContainer{
+		gap: 10px;
+	}
+	.counter-button{
+		width: 60px;
+		height: 70%;
+	}
+}
