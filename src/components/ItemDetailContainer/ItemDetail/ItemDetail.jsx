@@ -19,7 +19,7 @@ const ItemDetail = () => {
             .then((resolve) => {
                 setItem(resolve);
             })
-            .cacth((error) => {
+            .catch((error) => {
                 console.log(error);
             })
     }, [])

@@ -1,7 +1,7 @@
 
 const Greeting = () => {
     return (
-        <div className="sm:m-0 m-10 text-center">
+        <div className="sm:m-0 m-10 h-auto text-center">
             <h5 className="font-bold sm:text-6xl text-2xl hover:scale-y-125 hover:duration-150 cursor-grabbing">Welcome,Bienvenue,Bienvenidos!</h5>
             <p>
                 <br /> <br />
@@ -21,4 +21,4 @@ const Greeting = () => {
     )
 }
 
-export default Greeting
+export default Greeting;

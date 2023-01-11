@@ -1,15 +1,12 @@
-.ProductList {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, 240px);
-    width: 100%;
-    height: 100%;
-	gap: 20px;
+.itemList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
 	place-content: center;
-	margin: 0;
 }
 
 @media (max-width: 640px) {
-	.ProductList {
+	.itemList {
 		grid-template-columns: repeat(auto-fill, 140px);
 	}
 }

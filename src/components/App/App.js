@@ -13,21 +13,27 @@ function App() {
       < BrowserRouter >
        < Header />
         < Routes >
-           < Route path='/' 
+           < Route path='/greeting' 
             element= {
             <ItemListContainer >
              < Greeting />
             </ItemListContainer>
              } 
           />
-          < Route path='/category' 
+          < Route path='/' element={
+          < ItemListContainer>
+          < ItemList />
+          </ItemListContainer>
+          }
+          />
+          < Route path='/category/:categoryName' 
             element= {
             <ItemListContainer >
              < ItemList />
             </ItemListContainer>
              } 
           />
-          < Route path='/item' 
+          < Route path='/item/:id' 
             element= {
             <ItemDetailContainer >
              < ItemDetail />

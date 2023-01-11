@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './ItemList.css';
 import Item from '../Item/Item';
 import { products } from '../../../mock/Products';
@@ -7,12 +7,16 @@ import { products } from '../../../mock/Products';
 const ItemList = () => {
     const [item, setItem] = useState([]);
 
+    const { categoryName } = useParams();
+
     useEffect(() => {
         const getProducts = async () => {
 
             return await new Promise((resolve, reject) => {
+                const filterProducts = products.filter((prod) => prod.category === categoryName);
+                const listProducts = categoryName ? filterProducts : products;
                 setTimeout(() => {
-                    resolve(products);
+                    resolve(listProducts);
                 }, 2000);
             })
         }
@@ -23,13 +27,15 @@ const ItemList = () => {
             .catch((error) => {
                 console.log(error);
             })
-    }, [])
+    }, [categoryName])
     return (
-        <div>
+
+        <div className='itemList'>
             {item.map((product) => {
                 return < Item product={product} key={product.id} />
             })}
         </div>
+
     )
 }
 

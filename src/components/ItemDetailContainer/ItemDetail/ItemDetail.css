@@ -6,7 +6,7 @@ main{
 	place-content: center;
 }
 .imageContainer{
-	width: 63%;
+	width: 60%;
 	height: auto;
 	border-radius: 10px;
 	object-fit: cover;
