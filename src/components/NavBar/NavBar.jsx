@@ -4,6 +4,7 @@ import Menu from './Menu';
 import menu from '../../assets/icons/icon_menu.svg';
 import logo from '../../assets/logos/local_convenience_store_FILL0_wght400_GRAD0_opsz48.svg';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -18,9 +19,9 @@ const NavBar = () => {
                 {toggleMenu && < Menu />}
             </div>
             <div className="navbar-left">
-                <a href="/greeting">
+                <Link to="/greeting">
                     <img src={logo} alt="logo" className="nav-logo" />
-                </a>
+                </Link>
                 < Menu />
             </div>
             <div className="navbar-right">

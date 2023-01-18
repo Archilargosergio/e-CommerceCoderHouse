@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import './ItemDetail.css';
 import shoppingCart from '../../../assets/icons/icon_shopping_cart.svg';
 import { products } from '../../../mock/Products';
+import ItemCount from '../../ItemCount/ItemCount';
 
 const ItemDetail = () => {
-    const [counter, setCounter] = useState(1);
     const [product, setProduct] = useState({});
 
     const value = useParams();
@@ -47,20 +47,9 @@ const ItemDetail = () => {
                     </div>
 
                     <div className='buttonsContainer'>
-                        <div className='counter-button'>
-                            <button onClick={() => {
-                                setCounter(counter - 1)
-                            }}>
-                                -
-                            </button>
-                            <p>{counter}</p>
-                            <button onClick={() => {
-                                setCounter(counter + 1)
-                            }}>
-                                +
-                            </button>
 
-                        </div>
+                        < ItemCount />
+
                         <button className="primary-button add-to-cart-button">
                             <img src={shoppingCart} alt="add to cart" />
                             Add to cart

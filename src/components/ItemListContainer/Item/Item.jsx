@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import './Item.css';
 import shoppingCart from '../../../assets/icons/icon_shopping_cart.svg';
+import ItemCount from '../../ItemCount/ItemCount';
 
 const Item = ({ item }) => {
-    const [counter, setCounter] = useState(1)
+
     return (
         <div className="ProductItem">
 
@@ -18,20 +18,8 @@ const Item = ({ item }) => {
                 </div>
 
                 <div className='buttonContainer'>
-                    <div className='counterItem-button'>
-                        <button onClick={() => {
-                            setCounter(counter - 1)
-                        }}>
-                            -
-                        </button>
-                        <span>{counter}</span>
-                        <button onClick={() => {
-                            setCounter(counter + 1)
-                        }}>
-                            +
-                        </button>
 
-                    </div>
+                    < ItemCount />
 
                     <figure >
                         <img src={shoppingCart} alt="" />

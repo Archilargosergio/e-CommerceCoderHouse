@@ -1,0 +1,28 @@
+.counterItem-button{
+	width: 60px;
+	height: 80%;
+	display: grid;
+	grid-template-columns: auto 30px auto;
+	align-self: center;
+	background-color: azure;
+	border-radius: 5px;
+}
+.counterItem-button button{
+	height: 100%;
+	background-color: rgb(207, 207, 207);
+	font-weight: bold;
+}
+.counterItem-button button:hover{
+	background-color: rgb(177, 177, 177);
+}
+.counterItem-button span{
+	color: black;
+	text-align: center;
+	align-self: center;
+}
+@media (max-width: 640px) {
+	.counterItem-button{
+		width: 35px;
+		grid-template-columns: auto 20px auto;
+	}
+}
