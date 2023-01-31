@@ -34,7 +34,7 @@ const ItemDetail = () => {
     }, [number]);
 
     return (
-        <main>
+        <article>
             <img className='imageContainer' src={product.img} alt={product.title} />
 
             <div className="ProductInfo">
@@ -59,7 +59,7 @@ const ItemDetail = () => {
                 </div>
                 <p>With its practical position, this product also fulfills a decorative function, add your hall or workspace.</p>
             </div>
-        </main>
+        </article>
     )
 }
 
