@@ -34,8 +34,10 @@ const ItemDetail = () => {
     }, [number]);
 
     return (
-        <article>
-            <img className='imageContainer' src={product.img} alt={product.title} />
+        <article className='itemDetailContainer'>
+            <div className='imageContainer'>
+                <img src={product.img} alt={product.title} />
+            </div>
 
             <div className="ProductInfo">
 
@@ -57,7 +59,7 @@ const ItemDetail = () => {
                     </div>
 
                 </div>
-                <p>With its practical position, this product also fulfills a decorative function, add your hall or workspace.</p>
+                <p className='descriptionText'> This product also fulfills a decorative function, add your hall or workspace.</p>
             </div>
         </article>
     )

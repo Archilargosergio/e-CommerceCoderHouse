@@ -5,7 +5,7 @@ import ItemCount from '../../ItemCount/ItemCount';
 const Item = ({ item }) => {
 
     return (
-        <article className="ProductItem">
+        <main className="ProductItem">
 
             <a href={`/item/${item.id}`}>
                 <img src={item.img} alt={item.id} />
@@ -28,7 +28,7 @@ const Item = ({ item }) => {
 
                 </div>
             </div>
-        </article>
+        </main>
     )
 }
 

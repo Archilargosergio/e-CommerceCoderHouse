@@ -1,6 +1,6 @@
 .counterItem-button{
-	width: 60px;
-	height: 80%;
+	width: 70px;
+	height: auto;
 	display: grid;
 	grid-template-columns: auto 30px auto;
 	align-self: center;
