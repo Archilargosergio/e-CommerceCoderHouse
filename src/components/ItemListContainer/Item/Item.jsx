@@ -19,7 +19,7 @@ const Item = ({ item }) => {
 
                 <div className='buttonContainer'>
 
-                    < ItemCount />
+                    < ItemCount itemStocktock={item.stock} />
 
                     <figure >
                         <img src={shoppingCart} alt="" />

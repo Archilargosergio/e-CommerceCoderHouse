@@ -50,7 +50,7 @@ const ItemDetail = () => {
 
                     <div className='buttonsContainer'>
 
-                        < ItemCount />
+                        < ItemCount itemStock={product.stock} />
 
                         <button className="primary-button add-to-cart-button">
                             <img src={shoppingCart} alt="add to cart" />
