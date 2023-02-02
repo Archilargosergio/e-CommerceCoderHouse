@@ -1,12 +1,22 @@
+import { useState } from 'react';
 import shoppingCart from '../../assets/icons/icon_shopping_cart.svg';
 import Circle from '../../assets/icons/circle_FILL1_wght400_GRAD0_opsz48.png';
+import MyOrder from '../MyOrder/MyOrder';
 
 const CartWidget = () => {
+    const [myOrderToggle, setMyOrderToggle] = useState(false);
+
+    const handleMyOrderToggle = () => {
+        return setMyOrderToggle(!myOrderToggle)
+    }
     return (
-        <div className='flex relative text-white font-bold text-xs hover:scale-110 hover:duration-150'>
-            <img className='z-0 cursor-pointer hover:bg-lime-400' src={shoppingCart} alt="shopping-cart" />
-            <img className='flex absolute -my-3 mx-3 z-10' src={Circle} alt="" />
-            <span className='flex absolute -my-2 mx-5 z-20 p-auto'>1</span>
+        <div className='relative'>
+            <nav className='text-white font-bold text-xs hover:scale-10 hover:duration-150' onClick={handleMyOrderToggle}>
+                <img className='absolute z-0 cursor-pointer hover:bg-lime-400' src={shoppingCart} alt="shopping-cart" />
+                <img className='absolute w-6 mx-3 z-10' src={Circle} alt="" />
+                <span className='absolute mx-5 z-20 p-auto'>1</span>
+            </nav>
+            {myOrderToggle && < MyOrder handleMyOrderToggle={handleMyOrderToggle} />}
         </div>
     )
 }

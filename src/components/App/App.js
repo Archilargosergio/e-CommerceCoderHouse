@@ -6,42 +6,45 @@ import Greeting from '../ItemListContainer/Greeting';
 import ItemList from '../ItemListContainer/ItemList/ItemList';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemDetail from '../ItemDetailContainer/ItemDetail/ItemDetail';
+import CartProvider from '../../provider/CartProvider';
 
 function App() {
   return (
     <div className="App">
-      < BrowserRouter >
-       < Header />
-        < Routes >
+      < CartProvider >
+       < BrowserRouter >
+        < Header />
+         < Routes >
            < Route path='/greeting' 
             element= {
-            <ItemListContainer >
-             < Greeting />
-            </ItemListContainer>
+              <ItemListContainer >
+               < Greeting />
+             </ItemListContainer>
              } 
+             />
+           < Route path='/' element={
+             < ItemListContainer>
+               < ItemList />
+             </ItemListContainer>
+             }
           />
-          < Route path='/' element={
-          < ItemListContainer>
-          < ItemList />
-          </ItemListContainer>
-          }
-          />
-          < Route path='/category/:categoryName' 
+           < Route path='/category/:categoryName' 
             element= {
-            <ItemListContainer >
-             < ItemList />
-            </ItemListContainer>
-             } 
-          />
-          < Route path='/item/:id' 
+              <ItemListContainer >
+                < ItemList />
+             </ItemListContainer>
+              } 
+             />
+              < Route path='/item/:id' 
             element= {
               < ItemDetailContainer>
-             < ItemDetail />
+               < ItemDetail />
               </ItemDetailContainer>
              } 
-          />
-       </Routes>
-      </BrowserRouter>
+             />
+         </Routes>
+       </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

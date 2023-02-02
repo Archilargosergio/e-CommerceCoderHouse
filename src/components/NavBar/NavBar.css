@@ -2,12 +2,13 @@ nav{
     display: flex; 
     justify-content: space-between;
     align-items: center;
-    margin: 0;
+    margin:0;
     padding: 0 40px;
     width: calc(100% - 1px);
     height: 48px;
     border-bottom: 1px solid gray;
     background-color: rgb(209, 209, 209);
+    z-index: 0;
  }
  .menu-container{
    display: none;
@@ -42,11 +43,11 @@ nav{
  .navbar-right ul{
     display: flex;
     gap: 20px;
+    align-items: center;
  }
  .navbar-email{
     font-size: small;
  }
-
  @media (max-width: 640px){
 .menu-container {
     display: block;

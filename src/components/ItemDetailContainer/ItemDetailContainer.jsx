@@ -2,7 +2,7 @@
 const ItemDetailContainer = ({ children }) => {
 
     return (
-        <main>
+        <main >
             {children}
         </main>
     )

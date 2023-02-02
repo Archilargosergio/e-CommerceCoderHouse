@@ -29,7 +29,7 @@ const NavBar = () => {
                     <li className="navbar-email" >
                         24/7shop@gmail.com
                     </li>
-                    <li className="navbar-shopping-cart" >
+                    <li className="navbar-shopping-cart " >
                         < CartWidget />
                     </li>
                 </ul>
