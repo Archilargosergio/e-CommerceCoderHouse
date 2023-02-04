@@ -11,6 +11,7 @@ const Menu = () => {
                 <li className="sm:bg-inherit bg-slate-200 sm:rounded-none rounded hover:font-bold hover:bg-lime-400 hover:scale-110 hover:duration-150"><Link to="/category/toys">Toys</Link></li>
                 <li className="sm:bg-inherit bg-slate-200 sm:rounded-none rounded hover:font-bold hover:bg-lime-400 hover:scale-110 hover:duration-150"><Link to="/category/others">Others</Link></li>
             </ul>
+
         </div>
     )
 }

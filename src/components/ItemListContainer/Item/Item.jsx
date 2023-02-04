@@ -1,8 +1,12 @@
+import { useContext } from 'react';
 import './Item.css';
 import shoppingCart from '../../../assets/icons/icon_shopping_cart.svg';
 import ItemCount from '../../ItemCount/ItemCount';
+import { context } from '../../Context/CartContext';
 
 const Item = ({ item }) => {
+
+    const { addProduct } = useContext(context);
 
     return (
         <main className="ProductItem">
@@ -19,9 +23,9 @@ const Item = ({ item }) => {
 
                 <div className='buttonContainer'>
 
-                    < ItemCount itemStocktock={item.stock} />
+                    < ItemCount itemStock={item.stock} />
 
-                    <figure >
+                    <figure onClick={addProduct}>
                         <img src={shoppingCart} alt="" />
 
                     </figure>

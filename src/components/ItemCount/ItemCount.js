@@ -9,7 +9,7 @@ const ItemCount = ({ itemStock }) => {
             setCounter(counter + 1);
         }
     }
-    const restItem = () =>{
+     const restItem = () =>{
         if(counter > 1){
             setCounter(counter - 1);
         }
@@ -17,15 +17,14 @@ const ItemCount = ({ itemStock }) => {
 
   return (
     <div className='counterItem-button'>
-                        <button onClick={restItem}>
-                            -
-                        </button>
-                        <span>{counter}</span>
-                        <button onClick={addItem}>
-                            +
-                        </button>
-
-                    </div>
+         <button onClick={restItem}>
+               -
+         </button>
+         <span>{counter}</span>
+            <button onClick={addItem}>
+                  +
+             </button>
+</div>
   )
 }
 

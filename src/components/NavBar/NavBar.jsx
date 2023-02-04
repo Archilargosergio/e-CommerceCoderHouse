@@ -15,7 +15,7 @@ const NavBar = () => {
     return (
         <nav>
             <div className='menu-container z-10'>
-                <img src={menu} alt="menu" className="menu" onClick={handleToggleMenu} />
+                <img src={menu} alt="menu" className="menuLogo" onClick={handleToggleMenu} />
                 {toggleMenu && < Menu />}
             </div>
             <div className="navbar-left">

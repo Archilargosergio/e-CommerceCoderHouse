@@ -15,13 +15,13 @@ nav{
    width: auto;
    height: 100%;
  }
- .menu{
+ .menuLogo{
    width: 40px;
    height: 40px;
    padding: 5px 0;
    cursor: pointer;
  }
- .menu:hover{
+ .menuLogo:hover{
    transform: scale(1.1);
    transition-duration: 0.5s;
  }

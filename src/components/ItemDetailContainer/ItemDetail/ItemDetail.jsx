@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import './ItemDetail.css';
 import shoppingCart from '../../../assets/icons/icon_shopping_cart.svg';
 import { products } from '../../../mock/Products';
 import ItemCount from '../../ItemCount/ItemCount';
+import { context } from '../../Context/CartContext';
 
 const ItemDetail = () => {
     const [product, setProduct] = useState({});
+    const { addProduct } = useContext(context);
 
     const value = useParams();
 
@@ -52,7 +54,7 @@ const ItemDetail = () => {
 
                         < ItemCount itemStock={product.stock} />
 
-                        <button className="primary-button add-to-cart-button">
+                        <button className="primary-button add-to-cart-button" onClick={addProduct}>
                             <img src={shoppingCart} alt="add to cart" />
                             Add to cart
                         </button>

@@ -6,15 +6,15 @@ import Greeting from '../ItemListContainer/Greeting';
 import ItemList from '../ItemListContainer/ItemList/ItemList';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemDetail from '../ItemDetailContainer/ItemDetail/ItemDetail';
-import CartProvider from '../../provider/CartProvider';
+import CartContext from '../Context/CartContext';
 
 function App() {
   return (
     <div className="App">
-      < CartProvider >
+      < CartContext >
        < BrowserRouter >
         < Header />
-         < Routes >
+         < Routes >s
            < Route path='/greeting' 
             element= {
               <ItemListContainer >
@@ -44,7 +44,7 @@ function App() {
              />
          </Routes>
        </BrowserRouter>
-      </CartProvider>
+      </CartContext>
     </div>
   );
 }

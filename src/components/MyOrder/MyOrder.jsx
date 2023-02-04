@@ -1,8 +1,12 @@
+import { useContext } from 'react';
 import './MyOrder.css';
 import Arrow from '../../assets/icons/flechita.svg';
+import { context } from '../Context/CartContext';
 import ItemMyOrder from '../ItemMyOrder/ItemMyOrder';
 
 const MyOrder = ({ handleMyOrderToggle }) => {
+    const { generalState } = useContext(context);
+
     return (
         <aside className="myOrderContainer">
             <div className="titleContainer">
@@ -11,7 +15,10 @@ const MyOrder = ({ handleMyOrderToggle }) => {
             </div>
             <div className="myOrderContent">
                 <div className='cartProductList'>
-                    < ItemMyOrder />
+                    {generalState.cart.map(productItem => {
+                        return < ItemMyOrder productItem={productItem} key={productItem.id} />
+
+                    })}
                 </div>
                 <div className="order">
                     <p>
