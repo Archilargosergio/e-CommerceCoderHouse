@@ -1,14 +1,21 @@
 import {useState, useEffect} from 'react';
 import {products} from '../mock/Products';
+import { useParams } from 'react-router-dom';
 
 const useGetProduct = () => {
-    const [ generalItem, setGeneralItem] = useState([]);
+    const [ generalItem, setGeneralItem] = useState({});
+
+    const value = useParams();
+    const numberValue = parseFloat(value.id)
 
     useEffect(()=>{
         const getProducsMock = async () =>{
             return await new Promise((resolve, reject) => {
+                const findProducts = products.find((prod) => 
+                     prod.id === numberValue
+                )
                 setTimeout(() => {
-                    resolve(products);
+                    resolve(findProducts);
                 }, 500);
             })
         }
@@ -19,10 +26,10 @@ const useGetProduct = () => {
         .catch((error) =>{
             console.log(error);
         })
-    })
-  return  {
-    generalItem,
-}
+    }, [numberValue])
+  return (
+    generalItem
+  )
 }
 
 export default useGetProduct

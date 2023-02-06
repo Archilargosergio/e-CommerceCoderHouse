@@ -3,17 +3,18 @@ import './ItemMyOrder.css';
 import CloseIcon from '../../assets/icons/icon_close.png';
 import { context } from '../Context/CartContext';
 
-const ItemMyOrder = ({ productItem }) => {
-    const { removeFromCart } = useContext(context);
+const ItemMyOrder = () => {
+    const { cart, total, amoung } = useContext(context);
 
     return (
         <div className="OrderItem">
             <figure>
-                <img src={productItem.img} alt={productItem.id} />
+                <img src={cart.product.img} alt={cart.product.id} />
             </figure>
-            <p>{productItem.title}</p>
-            <p>${productItem.price}</p>
-            <img className='closeIconImage' src={CloseIcon} alt="close" onClick={removeFromCart} />
+            <p>{cart.product.title}</p>
+            <p>{amoung}</p>
+            <p>${total}</p>
+            <img className='closeIconImage' src={CloseIcon} alt="close" onClick={'removeFromCart'} />
         </div>
     )
 }

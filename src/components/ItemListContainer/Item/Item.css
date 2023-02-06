@@ -1,4 +1,7 @@
 .ProductItem {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	place-content: center;
 	width: 240px;
 	background-color: rgb(75, 134, 136);
 	border-radius: 20px 0;
@@ -16,46 +19,23 @@
 	transition-duration: 0.5s;
 }
 .productInfo {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	display: grid;
+	place-content: center;
+	text-align: center;
 	margin: 10px 5px 0;
 }
-.productInfo div p:nth-child(1) {
+.productInfo p:nth-child(1) {
 	font-weight: bold;
 	font-size: 16px;
 	margin-bottom: 2px;
 }
-.productInfo div p:nth-child(2) {
+.productInfo p:nth-child(2) {
 	font-size: 22px;
 	font-weight: bold;
 	color: white;
 }
-.productInfo div p:nth-child(2):hover {
+.productInfo p:nth-child(2):hover {
 	color: greenyellow;
-}
-.buttonContainer{
-	display: flex;
-	gap: 20px;
-}
-.buttonContainer figure {
-	display: flex;
-	place-content: center;
-	width: 40px;
-	height: 40px;
-}
-.buttonContainer figure img {
-	border-radius: 4px;
-	width: 90%;
-	height: 90%;
-	background-color: rgb(0, 187, 255);
-	cursor: pointer;
-	object-fit: cover;
-}
-.buttonContainer figure img:hover{
-	background-color: greenyellow;
-	transform: scale(1.1);
-	transition-duration: 0.5s;
 }
 @media (max-width: 640px) {
 	.ProductItem {
@@ -65,17 +45,10 @@
 		width: 140px;
 		height: 140px;
 	}
-	.productInfo div p:nth-child(1) {
+	.productInfo p:nth-child(1) {
 		font-size: 14px;
 	}
-	.productInfo div p:nth-child(2) {
+	.productInfo p:nth-child(2) {
 		font-size: 16px;
-	}
-	.buttonContainer{
-		gap: 8px;
-	}
-	.buttonContainer figure {
-		width: 25px;
-		height: 25px;
 	}
 }

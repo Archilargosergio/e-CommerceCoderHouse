@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './ItemCount.css';
 
-const ItemCount = ({ itemStock }) => {
+const ItemCount = ({ itemStock, handleAdd }) => {
     const [counter, setCounter] = useState(1);
 
     const addItem = () =>{
@@ -14,9 +14,13 @@ const ItemCount = ({ itemStock }) => {
             setCounter(counter - 1);
         }
     }
+ const handleConfirm = () => {
+   handleAdd(counter);
+ }
 
   return (
-    <div className='counterItem-button'>
+    <div className='counterItem'>
+      <div className="counterItem-button">
          <button onClick={restItem}>
                -
          </button>
@@ -24,6 +28,10 @@ const ItemCount = ({ itemStock }) => {
             <button onClick={addItem}>
                   +
              </button>
+      </div>
+             <div className="counterConfirmButton">
+              <button className="" onClick={handleConfirm}>Confirm</button>
+             </div>
 </div>
   )
 }

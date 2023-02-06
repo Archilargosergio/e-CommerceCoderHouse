@@ -8,7 +8,9 @@ import { context } from '../../Context/CartContext';
 
 const ItemDetail = () => {
     const [product, setProduct] = useState({});
-    const { addProduct } = useContext(context);
+    const [confirm, setConfirm] = useState(false)
+    const [newCounter, setNewCounter] = useState(0)
+    const { addCart } = useContext(context);
 
     const value = useParams();
 
@@ -35,6 +37,14 @@ const ItemDetail = () => {
             })
     }, [number]);
 
+    const handleAdd = (counter) => {
+        setConfirm(true);
+        setNewCounter(counter);
+    }
+
+    const newAddCart = () => {
+        addCart(product, newCounter);
+    }
     return (
         <article className='itemDetailContainer'>
             <div className='imageContainer'>
@@ -52,12 +62,13 @@ const ItemDetail = () => {
 
                     <div className='buttonsContainer'>
 
-                        < ItemCount itemStock={product.stock} />
-
-                        <button className="primary-button add-to-cart-button" onClick={addProduct}>
-                            <img src={shoppingCart} alt="add to cart" />
-                            Add to cart
-                        </button>
+                        < ItemCount itemStock={product.stock} handleAdd={handleAdd} />
+                        {confirm &&
+                            <button className="primary-button add-to-cart-button" onClick={newAddCart}>
+                                <img src={shoppingCart} alt="add to cart" />
+                                Add to cart
+                            </button>
+                        }
                     </div>
 
                 </div>
