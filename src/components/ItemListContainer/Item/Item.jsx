@@ -4,6 +4,7 @@ const Item = ({ item }) => {
 
 
     return (
+
         <main className="ProductItem">
 
             <a href={`/item/${item.id}`}>
@@ -16,6 +17,7 @@ const Item = ({ item }) => {
             </div>
         </main>
     )
+
 }
 
 export default Item;

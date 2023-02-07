@@ -3,44 +3,26 @@ import { createContext, useState } from "react";
 export const context = createContext();
 const { Provider } = context;
 
-// const initialState = {
-//     cart: [],
-// }
 const CartContext = ({ children }) => {
 
-    // const [generalState, setGeneralState] = useState(initialState);
-
-    // const addProduct = (payload) => {
-    //     return setGeneralState({
-    //         ...generalState,
-    //         cart: [generalState.cart, payload]
-    //     })
-    // }
-
-    // const removeFromCart = (payload, indexValue) => {
-    //     return setGeneralState({
-    //         ...generalState,
-    //         cart: generalState.cart.filter(
-    //             (item, index) => item.id !== payload && index !== indexValue),
-    //     });
-    // }
-
-    const [cart, setCart] = useState([]);
+    const [cartProduct, setCartProduct] = useState([]);
     const [total, setTotal] = useState(0);
     const [amoung, setAmoung] = useState(0)
 
+    // const newCounterState = [...newCounter];
+
     const addCart = (product, newCounter) => {
-        setCart({
-            ...cart,
-            ...cart.push(product)
-        })
+
+        product.amoung = newCounter;
+
+        setCartProduct(product)
         setTotal(product.price * newCounter);
         setAmoung(newCounter);
 
     }
 
     const contextValue = {
-        cart,
+        cartProduct,
         total,
         amoung,
         addCart
