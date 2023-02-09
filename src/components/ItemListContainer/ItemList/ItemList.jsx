@@ -1,13 +1,15 @@
+import './ItemList.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './ItemList.css';
-import Item from '../Item/Item';
 import { productsCollection } from '../../../firebaseConfig';
 import { getDocs, query, where } from 'firebase/firestore';
 import { toast } from 'react-toastify';
+import Item from '../Item/Item';
+import Spinner from '../../Spinner/Spinner';
 
 const ItemList = () => {
     const [secondProduct, setSecondProduct] = useState([]);
+    const [firstLoading, setFirstLoading] = useState(true);
 
     const { categoryName } = useParams();
 
@@ -30,6 +32,7 @@ const ItemList = () => {
                     })
                     toast.info("I am a notification!");
                     setSecondProduct(productItem);
+                    setFirstLoading(false);
                 })
                 .catch((error) => {
                     console.log(error);
@@ -39,13 +42,16 @@ const ItemList = () => {
 
     }, [categoryName]);
 
-    return (
-        <div className='itemList'>
-            {secondProduct.map(secondProduct => {
-                return < Item secondProduct={secondProduct} key={secondProduct.id} />
-            })}
-        </div>
-    )
+    return <>
+        {!firstLoading ?
+            <div className='itemList'>
+                {secondProduct.map(secondProduct => {
+                    return < Item secondProduct={secondProduct} key={secondProduct.id} />
+                })}
+            </div> :
+            < Spinner />
+        }
+    </>
 }
 
 export default ItemList;
