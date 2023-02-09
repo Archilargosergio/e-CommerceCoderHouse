@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
 	gap: 10px;
-	place-content: space-around;
+	place-content: space-between;
 	margin-bottom: 24px;
 	padding: 5px 10px;
 	align-items: center;

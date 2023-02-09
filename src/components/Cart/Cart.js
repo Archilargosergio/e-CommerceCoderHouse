@@ -20,8 +20,7 @@ const Cart = () => {
 
         < ButtonCartContainer />
                         </div>
-                    
-                        
+                                            
                         </> :
                     <p className='containerAlertCartEmpty'> The Cart is empty</p>
 
