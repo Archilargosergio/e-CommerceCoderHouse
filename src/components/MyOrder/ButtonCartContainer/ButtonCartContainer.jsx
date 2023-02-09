@@ -18,6 +18,7 @@ const ButtonCartContainer = () => {
                 tel: '3454876478'
             },
             cartProduct,
+            total,
             date: serverTimestamp(),
         }
 
@@ -32,27 +33,31 @@ const ButtonCartContainer = () => {
             })
     }
 
-    return (
-        <div>
+    return <>
+        {!handlePurchase ?
+            <div>
 
-            <div className="order">
-                <p>
-                    <span>Total</span>
-                </p>
-                <p>$ {total}</p>
-            </div>
+                <div className="order">
+                    <p>
+                        <span>Total</span>
+                    </p>
+                    <p>$ {total}</p>
+                </div>
 
-            <div className='containerButtons'>
-                <button className="primaryButtonMyOrder" onClick={handlePurchase}>
-                    Checkout
-                </button>
-                <button className="secondaryButtonEmptyCart" onClick={emptyCart}>
-                    Empty cart
-                </button>
-            </div>
+                <div className='containerButtons'>
+                    <button className="primaryButtonMyOrder" onClick={handlePurchase}>
+                        Checkout
+                    </button>
+                    <button className="secondaryButtonEmptyCart" onClick={emptyCart}>
+                        Empty cart
+                    </button>
+                </div>
 
-        </div>
-    )
+            </div> :
+            <p className='purchaseIdContainer'>Your order id is {salesCollection.id}</p>
+
+        }
+    </>
 }
 
 export default ButtonCartContainer;

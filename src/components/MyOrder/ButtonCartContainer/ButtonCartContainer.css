@@ -62,3 +62,11 @@
     background-color: rgba(255, 84, 84, 0.735);
 	color: black;
 }
+.purchaseIdContainer{
+	margin: 10px 0;
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	background-color: rgb(160, 247, 142);
+	border-radius: 5px;
+}
