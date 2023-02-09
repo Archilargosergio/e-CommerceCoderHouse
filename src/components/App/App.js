@@ -7,6 +7,7 @@ import ItemList from '../ItemListContainer/ItemList/ItemList';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemDetail from '../ItemDetailContainer/ItemDetail/ItemDetail';
 import CartContext from '../Context/CartContext';
+import Cart from '../Cart/Cart';
 
 function App() {
   return (
@@ -41,6 +42,13 @@ function App() {
                < ItemDetail />
               </ItemDetailContainer>
              } 
+             />
+             < Route path='/cart' 
+            element= {
+              <ItemListContainer >
+                < Cart />
+             </ItemListContainer>
+              } 
              />
          </Routes>
        </BrowserRouter>

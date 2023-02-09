@@ -25,9 +25,9 @@ const CartContext = ({ children }) => {
                 setAmoung(amoung + newCounter)
             )
         }
+        setCartProduct([...cartProduct, product])
         setTotal(total + product.price * newCounter)
         setAmoung(newCounter)
-        setCartProduct([...cartProduct, product])
 
     }
 

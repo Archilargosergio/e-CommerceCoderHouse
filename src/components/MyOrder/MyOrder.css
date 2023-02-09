@@ -37,69 +37,6 @@
 .cartProductList::-webkit-scrollbar {
 	display: absolute;
 }
-.order {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	gap: 16px;
-	align-items: center;
-	background-color: rgb(224, 224, 224);
-    color: black;
-	margin-bottom: 24px;
-	border-radius: 8px;
-	padding: 0 24px;
-}
-.order p:nth-child(1) {
-	display: flex;
-	flex-direction: column;
-}
-.order p span:nth-child(1) {
-	font-size: 15px;
-	font-weight: bold;
-}
-.order p:nth-child(2) {
-    font-size: 15px;
-	text-align: end;
-	font-weight: bold;
-}
-.containerButtons{
-	display: flex;
-	place-content: space-between;
-	gap: 20px;
-}
-.primaryButtonMyOrder {
-	background-color: rgb(0, 187, 255);
-	border-radius: 8px;
-	border: none;
-	color: white;
-	width: 100%;
-	height: 35px;
-	cursor: pointer;
-	font-size: 15px;
-	font-weight: bold;
-}
-.primaryButtonMyOrder:hover{
-    transform: scale(1.05);
-	transition-duration: 0.5s;
-    background-color: greenyellow;
-	color: black;
-}
-.secondaryButtonEmptyCart {
-	background-color: black;
-	border-radius: 8px;
-	border: none;
-	color: white;
-	width: 100%;
-	height: 35px;
-	cursor: pointer;
-	font-size: 15px;
-	font-weight: bold;
-}
-.secondaryButtonEmptyCart:hover{
-    transform: scale(1.05);
-	transition-duration: 0.5s;
-    background-color: rgba(255, 84, 84, 0.735);
-	color: black;
-}
 .textAlertCartEmpty{
 	margin: 10px 0;
 	text-align: center;

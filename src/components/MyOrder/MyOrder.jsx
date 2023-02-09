@@ -1,17 +1,19 @@
 import './MyOrder.css';
-import Arrow from '../../assets/icons/flechita.svg';
-import ItemMyOrder from '../ItemMyOrder/ItemMyOrder';
 import { context } from '../Context/CartContext';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import Arrow from '../../assets/icons/flechita.svg';
+import ItemMyOrder from './ItemMyOrder/ItemMyOrder';
+import ButtonCartContainer from './ButtonCartContainer/ButtonCartContainer';
 
 const MyOrder = ({ handleMyOrderToggle }) => {
-    const { cartProduct, total, emptyCart } = useContext(context);
+    const { cartProduct } = useContext(context);
 
     return (
         <aside className="myOrderContainer">
             <div className="titleContainer">
                 <img onClick={handleMyOrderToggle} src={Arrow} alt="arrow" />
-                <p className="title">My order</p>
+                <p className="title"> < Link to='/cart'> My Order</Link></p>
             </div>
             <>
                 {cartProduct.length ?
@@ -22,20 +24,7 @@ const MyOrder = ({ handleMyOrderToggle }) => {
                                 < ItemMyOrder item={item} key={item.id} />
                             ))}
                         </div>
-                        <div className="order">
-                            <p>
-                                <span>Total</span>
-                            </p>
-                            <p>$ {total}</p>
-                        </div>
-                        <div className='containerButtons'>
-                            <button className="primaryButtonMyOrder">
-                                Checkout
-                            </button>
-                            <button className="secondaryButtonEmptyCart" onClick={emptyCart}>
-                                Empty cart
-                            </button>
-                        </div>
+                        < ButtonCartContainer />
                     </div> :
                     <p className='textAlertCartEmpty'> The Cart is empty</p>
                 }
