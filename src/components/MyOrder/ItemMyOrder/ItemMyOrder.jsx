@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import './ItemMyOrder.css';
-import CloseIcon from '../../assets/icons/icon_close.png';
-import { context } from '../Context/CartContext';
+import CloseIcon from '../../../assets/icons/icon_close.png';
+import { context } from '../../Context/CartContext';
 
 const ItemMyOrder = ({ item }) => {
-    const { total, amoung, removeCart } = useContext(context);
+    const { removeCart } = useContext(context);
 
     const newRemoveCart = () => {
         removeCart(item);

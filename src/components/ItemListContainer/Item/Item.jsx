@@ -1,20 +1,21 @@
 import './Item.css';
 
-const Item = ({ item }) => {
+const Item = ({ secondProduct }) => {
 
 
     return (
 
         <main className="ProductItem">
 
-            <a href={`/item/${item.id}`}>
-                <img src={item.img} alt={item.id} />
+            <a href={`/item/${secondProduct.id}`}>
+                <img src={secondProduct.img} alt={secondProduct.id} />
             </a>
 
             <div className="productInfo">
-                <p>${item.price}</p>
-                <p>{item.title}</p>
+                <p>${secondProduct.price}</p>
+                <p>{secondProduct.title}</p>
             </div>
+
         </main>
     )
 

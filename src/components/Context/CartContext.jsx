@@ -7,25 +7,55 @@ const CartContext = ({ children }) => {
 
     const [cartProduct, setCartProduct] = useState([]);
     const [total, setTotal] = useState(0);
-    const [amoung, setAmoung] = useState(0)
-
-    // const newCounterState = [...newCounter];
+    const [amoung, setAmoung] = useState(0);
 
     const addCart = (product, newCounter) => {
 
-        product.amoung = newCounter;
+        if (cartProduct.find(item => item.id === product.id)) {
 
-        setCartProduct(product)
-        setTotal(product.price * newCounter);
-        setAmoung(newCounter);
+            const newProduct = cartProduct.map(item =>
+                item.id === product.id ?
+                    { ...item, quantity: newCounter + item.quantity } :
+                    { item, quantity: newCounter }
+            );
 
+            return (
+                setCartProduct([...newProduct]),
+                setTotal(total + product.price * newCounter),
+                setAmoung(amoung + newCounter)
+            )
+        }
+        setTotal(total + product.price * newCounter)
+        setAmoung(newCounter)
+        setCartProduct([...cartProduct, product])
+
+    }
+
+    const removeCart = (newCartProduct, counter) => {
+
+        const removeProduct = cartProduct.filter(item =>
+            item.id !== newCartProduct.id
+        );
+        return (
+            setCartProduct(removeProduct),
+            setTotal(total - newCartProduct.price * counter),
+            setAmoung(amoung - newCartProduct.quantity)
+        )
+    }
+
+    const emptyCart = () => {
+        setCartProduct([]);
+        setTotal(0);
+        setAmoung(0);
     }
 
     const contextValue = {
         cartProduct,
         total,
         amoung,
-        addCart
+        addCart,
+        removeCart,
+        emptyCart
     }
     return (
         <Provider value={contextValue}>

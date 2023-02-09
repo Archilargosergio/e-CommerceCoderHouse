@@ -18,8 +18,9 @@ const ItemDetail = () => {
     const number = parseFloat(value.id)
 
     useEffect(() => {
-        const getItemDetail = async () => {
-            return await new Promise((resolve, reject) => {
+        const getItemDetail = () => {
+
+            return new Promise((resolve, reject) => {
                 const filterItems = products.find(
                     (prod) => prod.id === number);
 
@@ -36,16 +37,20 @@ const ItemDetail = () => {
             .catch((error) => {
                 console.log(error);
             })
+        window.addEventListener("reload", getItemDetail)
+
+        return () => {
+            window.removeEventListener("reload", getItemDetail)
+        }
     }, [number]);
 
-    const handleAdd = (counter) => {
+    function handleAdd(counter) {
         setConfirm(true);
         setNewCounter(counter);
     }
     const newAddCart = () => {
         addCart(product, newCounter);
     }
-
     return <>
         {product.id ?
             <article className='itemDetailContainer'>
@@ -64,7 +69,7 @@ const ItemDetail = () => {
 
                         <div className='buttonsContainer'>
 
-                            < ItemCount itemStock={product.stock} handleAdd={handleAdd} />
+                            < ItemCount handleAdd={handleAdd} />
                             {confirm ?
                                 <button className="primary-button add-to-cart-button" onClick={newAddCart}>
                                     <img src={shoppingCart} alt="add to cart" />

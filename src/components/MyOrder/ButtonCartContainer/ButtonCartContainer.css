@@ -1,42 +1,3 @@
-.myOrderContainer {
-	width: 360px;
-	height: auto;
-	padding: 20px;
-    position: absolute;
-	position: fixed;
-    display: grid;
-	box-sizing: border-box;
-	background-color: white;
-	top: 120px;
-    right: 10px;
-	border-radius: 6px;
-	border: 1px solid rgba(0, 6, 130, 0.903);
-	overflow-y: auto;
-	scroll-behavior: smooth;
-    z-index: 5;
-    transition: 1s ease;
-	animation: swipeLeft 1s ease forwards;
-}
-.titleContainer {
-	display: flex;
-}
-.titleContainer img {
-	transform: rotate(180deg);
-	margin-right: 14px;
-	cursor: pointer;
-}
-.title {
-	font-size: 20px;
-	font-weight: bold;
-    color: black;
-}
-.cartProductList {
-	max-height: calc(100vh - 500px);
-	overflow-y: auto;
-}
-.cartProductList::-webkit-scrollbar {
-	display: absolute;
-}
 .order {
 	display: grid;
 	grid-template-columns: auto 1fr;
@@ -47,6 +8,7 @@
 	margin-bottom: 24px;
 	border-radius: 8px;
 	padding: 0 24px;
+    height: 20px;
 }
 .order p:nth-child(1) {
 	display: flex;
@@ -99,21 +61,4 @@
 	transition-duration: 0.5s;
     background-color: rgba(255, 84, 84, 0.735);
 	color: black;
-}
-.textAlertCartEmpty{
-	margin: 10px 0;
-	text-align: center;
-	color: black;
-	font-weight: bold;
-	background-color: rgb(247, 142, 142);
-	border-radius: 5px;
-}
-@media (max-width: 640px){
-    .myOrderContainer {
-		top: 100px;
-        right: -225px;
-	}
-}
-@keyframes swipeLeft {
-    100% {transform: translateX(-360px);}
 }

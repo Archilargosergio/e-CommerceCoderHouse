@@ -6,7 +6,7 @@ import Spinner from '../../Spinner/Spinner';
 import { products } from '../../../mock/Products';
 
 const ItemList = () => {
-    const [item, setItem] = useState([]);
+    const [secondProduct, setSecondProduct] = useState([]);
 
     const { categoryName } = useParams();
 
@@ -23,7 +23,7 @@ const ItemList = () => {
         }
         getProducts()
             .then((resolve) => {
-                setItem(resolve);
+                setSecondProduct(resolve);
             })
             .catch((error) => {
                 console.log(error);
@@ -31,10 +31,10 @@ const ItemList = () => {
     }, [categoryName]);
 
     return <>
-        {item === products || categoryName ?
+        {secondProduct === products || categoryName ?
             <div className='itemList'>
-                {item.map((item) => {
-                    return < Item item={item} key={item.id} />
+                {secondProduct.map(secondProduct => {
+                    return < Item secondProduct={secondProduct} key={secondProduct.id} />
                 })}
             </div> :
             < Spinner />

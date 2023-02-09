@@ -1,0 +1,15 @@
+.containerCart{
+    margin: 50px;
+    gap: 20px;
+}
+.containerAlertCartEmpty{
+    display: grid;
+    height: 40px;
+    margin: 50px;
+    align-content: center;
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	background-color: rgb(247, 142, 142);
+	border-radius: 5px;
+}

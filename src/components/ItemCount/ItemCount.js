@@ -1,21 +1,24 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { context } from "../Context/CartContext";
 import './ItemCount.css';
 
-const ItemCount = ({ itemStock, handleAdd }) => {
+const ItemCount = ({ handleAdd }) => {
     const [counter, setCounter] = useState(1);
+    const {removeCart} = useContext(context);
 
     const addItem = () =>{
-        if(counter < itemStock) {
             setCounter(counter + 1);
-        }
+        
     }
      const restItem = () =>{
-        if(counter > 1){
             setCounter(counter - 1);
-        }
+        
     }
  const handleConfirm = () => {
    handleAdd(counter);
+ }
+ const secondNewRemovecart = () => {
+  removeCart(counter)
  }
 
   return (

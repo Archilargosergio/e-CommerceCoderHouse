@@ -2,9 +2,12 @@
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
 	gap: 10px;
-	place-content: space-between;
+	place-content: space-around;
 	margin-bottom: 24px;
+	padding: 5px 10px;
 	align-items: center;
+	background-color: rgb(224, 224, 224);
+	border-radius: 10px;
 }
 .OrderItem figure {
 	margin: 2px 0;
