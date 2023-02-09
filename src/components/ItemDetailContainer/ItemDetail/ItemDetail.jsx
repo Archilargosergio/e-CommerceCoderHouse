@@ -10,24 +10,24 @@ import ItemCount from '../../ItemCount/ItemCount';
 
 const ItemDetail = () => {
     const [product, setProduct] = useState({});
-    const [confirm, setConfirm] = useState(false)
-    const [newCounter, setNewCounter] = useState(1)
+    const [confirm, setConfirm] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [newCounter, setNewCounter] = useState(1);
     const { addCart } = useContext(context);
 
-    const value = useParams();
-
-    const number = parseFloat(value.id)
+    const { id } = useParams();
 
     useEffect(() => {
         const getItemDetail = () => {
 
-            const referenceDoc = doc(productsCollection, number)
+            const referenceDoc = doc(productsCollection, id)
             const order = getDoc(referenceDoc)
 
             order
                 .then((result) => {
                     const newProduct = result.data()
-                    setProduct(newProduct)
+                    setProduct(newProduct);
+                    setLoading(false);
                 })
                 .catch((error) => {
                     console.log(error)
@@ -36,7 +36,7 @@ const ItemDetail = () => {
 
         getItemDetail()
 
-    }, [number]);
+    });
 
     function handleAdd(counter) {
         setConfirm(true);
@@ -46,7 +46,7 @@ const ItemDetail = () => {
         addCart(product, newCounter);
     }
     return <>
-        {product.id ?
+        {!loading ?
             <article className='itemDetailContainer'>
                 <div className='imageContainer'>
                     <img src={product.img} alt={product.title} />
