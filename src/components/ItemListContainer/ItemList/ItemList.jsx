@@ -30,12 +30,14 @@ const ItemList = () => {
                     const productItem = res.docs.map((doc) => {
                         return { ...doc.data(), id: doc.id };
                     })
-                    toast.info("I am a notification!");
                     setSecondProduct(productItem);
                     setFirstLoading(false);
                 })
                 .catch((error) => {
                     console.log(error);
+                    toast.error('Browser error !', {
+                        position: toast.POSITION.TOP_CENTER
+                    });
                 })
         }
         getProducts()

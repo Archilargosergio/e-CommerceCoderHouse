@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { context } from '../../Context/CartContext';
 import { productsCollection } from '../../../firebaseConfig';
 import { getDoc, doc } from 'firebase/firestore';
+import { toast } from 'react-toastify';
 import shoppingCart from '../../../assets/icons/icon_shopping_cart.svg';
 import Spinner from '../../Spinner/Spinner';
 import ItemCount from '../../ItemCount/ItemCount';
@@ -30,7 +31,10 @@ const ItemDetail = () => {
                     setLoading(false);
                 })
                 .catch((error) => {
-                    console.log(error)
+                    console.log(error);
+                    toast.error('Browser error !', {
+                        position: toast.POSITION.TOP_CENTER
+                    });
                 })
         };
 

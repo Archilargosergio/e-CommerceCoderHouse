@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { context } from '../../Context/CartContext';
 import { serverTimestamp, addDoc } from 'firebase/firestore';
 import { salesCollection } from '../../../firebaseConfig';
+import { toast } from 'react-toastify';
 
 const ButtonCartContainer = () => {
 
@@ -27,9 +28,15 @@ const ButtonCartContainer = () => {
             .then((result) => {
                 console.log(result.id);
                 console.log(result);
+                toast.success('Success purchase !', {
+                    position: toast.POSITION.TOP_RIGHT
+                });
             })
             .catch((error) => {
                 console.log(error);
+                toast.error('Failed purchase !', {
+                    position: toast.POSITION.TOP_CENTER
+                });
             })
     }
 

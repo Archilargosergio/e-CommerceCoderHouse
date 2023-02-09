@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { toast } from "react-toastify";
 
 export const context = createContext();
 const { Provider } = context;
@@ -22,12 +23,18 @@ const CartContext = ({ children }) => {
             return (
                 setCartProduct([...newProduct]),
                 setTotal(total + product.price * newCounter),
-                setAmoung(amoung + newCounter)
+                setAmoung(amoung + newCounter),
+                toast.success('Successful product addition !', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
             )
         }
-        setCartProduct([...cartProduct, product])
-        setTotal(total + product.price * newCounter)
-        setAmoung(newCounter)
+        setCartProduct([...cartProduct, product]);
+        setTotal(total + product.price * newCounter);
+        setAmoung(newCounter);
+        toast.success('Successful product addition !', {
+            position: toast.POSITION.TOP_RIGHT
+        });
 
     }
 
@@ -39,7 +46,10 @@ const CartContext = ({ children }) => {
         return (
             setCartProduct(removeProduct),
             setTotal(total - newCartProduct.price * counter),
-            setAmoung(amoung - newCartProduct.quantity)
+            setAmoung(amoung - newCartProduct.quantity),
+            toast.info('Shopping cart was emptied !', {
+                position: toast.POSITION.BOTTOM_CENTER
+            })
         )
     }
 
