@@ -47,7 +47,7 @@ const CartContext = ({ children }) => {
             setCartProduct(removeProduct),
             setTotal(total - newCartProduct.price * counter),
             setAmoung(amoung - newCartProduct.quantity),
-            toast.info('Shopping cart was emptied !', {
+            toast.info('shopping cart was emptied !', {
                 position: toast.POSITION.BOTTOM_CENTER
             })
         )

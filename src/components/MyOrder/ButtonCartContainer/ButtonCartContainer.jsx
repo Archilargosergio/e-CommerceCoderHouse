@@ -41,7 +41,7 @@ const ButtonCartContainer = () => {
     }
 
     return <>
-        {!handlePurchase ?
+        {handlePurchase ?
             <div>
 
                 <div className="order">
