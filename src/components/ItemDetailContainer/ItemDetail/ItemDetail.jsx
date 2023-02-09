@@ -1,11 +1,12 @@
+import './ItemDetail.css';
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import './ItemDetail.css';
+import { context } from '../../Context/CartContext';
+import { productsCollection } from '../../../firebaseConfig';
+import { getDoc, doc } from 'firebase/firestore';
 import shoppingCart from '../../../assets/icons/icon_shopping_cart.svg';
 import Spinner from '../../Spinner/Spinner';
-import { products } from '../../../mock/Products';
 import ItemCount from '../../ItemCount/ItemCount';
-import { context } from '../../Context/CartContext';
 
 const ItemDetail = () => {
     const [product, setProduct] = useState({});
@@ -20,28 +21,21 @@ const ItemDetail = () => {
     useEffect(() => {
         const getItemDetail = () => {
 
-            return new Promise((resolve, reject) => {
-                const filterItems = products.find(
-                    (prod) => prod.id === number);
+            const referenceDoc = doc(productsCollection, number)
+            const order = getDoc(referenceDoc)
 
-                setTimeout(() => {
-                    resolve(filterItems);
+            order
+                .then((result) => {
+                    const newProduct = result.data()
+                    setProduct(newProduct)
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        };
 
-                }, 2000);
-            });
-        }
         getItemDetail()
-            .then((resolve) => {
-                setProduct(resolve);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-        window.addEventListener("reload", getItemDetail)
 
-        return () => {
-            window.removeEventListener("reload", getItemDetail)
-        }
     }, [number]);
 
     function handleAdd(counter) {
